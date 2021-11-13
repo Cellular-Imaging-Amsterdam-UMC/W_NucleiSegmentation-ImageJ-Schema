@@ -45,8 +45,8 @@ RUN rm -r /biaflows-utilities
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Fiji plugins
-RUN cd /fiji/plugins && wget -O imagescience.jar https://imagescience.org/meijering/software/download/imagescience.jar
-RUN cd /fiji/plugins && wget -O FeatureJ_.jar https://imagescience.org/meijering/software/download/FeatureJ_.jar
+RUN cd /fiji/plugins && wget --no-check-certificate -O imagescience.jar https://imagescience.org/meijering/software/download/imagescience.jar
+RUN cd /fiji/plugins && wget --no-check-certificate -O FeatureJ_.jar https://imagescience.org/meijering/software/download/FeatureJ_.jar
 
 # ---------------------------------------------------------------------------------------------------------------------
 # Install Macro
