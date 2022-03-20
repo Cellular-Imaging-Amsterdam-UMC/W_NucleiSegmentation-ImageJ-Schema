@@ -16,10 +16,12 @@ jobs:
       with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - run: echo "REPOSITORY_NAME=$(echo '${{ github.repository }}' | awk '{print tolower($0)}')" >> $GITHUB_ENV
+      shell: bash
     - name: Get the version
       id: vars
       run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
     - name: Build the tagged Docker image
-      run: docker build . --file Dockerfile --tag  neubiaswg5/w_nucleisegmentation-imagej:${{steps.vars.outputs.tag}}
+      run: docker build . --file Dockerfile --tag  ${{ env.REPOSITORY_NAME}}:${{steps.vars.outputs.tag}}
     - name: Push the tagged Docker image
-      run: docker push neubiaswg5/w_nucleisegmentation-imagej:${{steps.vars.outputs.tag}}
+      run: docker push ${{ env.REPOSITORY_NAME}}:${{steps.vars.outputs.tag}}
