@@ -42,7 +42,7 @@
   ],
   "problem-class": "object-tracking",
   "container-image": {
-    "image": "neubiaswg5/w_nucleitracking-imagej:1.0.0",
+    "image": "neubiaswg5/w_nucleitracking-imagej:1.8",
     "type": "oci",
     "platforms": [
       "linux/amd64",
